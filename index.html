@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Selling Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gradient-to-b from-white to-gray-100 text-gray-900">
+    <div class="container mx-auto p-4">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-8">
+            <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">Car Selling Dashboard</h1>
+            <div class="flex items-center space-x-4">
+                <input type="text" placeholder="Search..." class="px-4 py-2 border rounded-lg bg-gray-300 border-gray-400 text-gray-900">
+                <button class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg">Search</button>
+            </div>
+        </header>
+
+        <!-- Stats Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6 rounded-lg shadow">
+                <h2 class="text-lg font-semibold">Active Users</h2>
+                <p class="text-2xl font-bold">1600</p>
+                <p class="text-green-600">+55%</p>
+            </div>
+            <div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6 rounded-lg shadow">
+                <h2 class="text-lg font-semibold">Click Events</h2>
+                <p class="text-2xl font-bold">357</p>
+                <p class="text-green-600">+12.4%</p>
+            </div>
+            <div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6 rounded-lg shadow">
+                <h2 class="text-lg font-semibold">Purchases</h2>
+                <p class="text-2xl font-bold">2300</p>
+                <p class="text-green-600">+15%</p>
+            </div>
+            <div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6 rounded-lg shadow">
+                <h2 class="text-lg font-semibold">Likes</h2>
+                <p class="text-2xl font-bold">940</p>
+                <p class="text-green-600">+10%</p>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- Sales Overview Chart -->
+            <div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6 rounded-lg shadow">
+                <h2 class="text-lg font-semibold mb-4">Sales Overview</h2>
+                <canvas id="salesChart"></canvas>
+            </div>
+
+            <!-- Inventory Overview Chart -->
+            <div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6 rounded-lg shadow">
+                <h2 class="text-lg font-semibold mb-4">Inventory Overview</h2>
+                <canvas id="inventoryChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6 rounded-lg shadow mb-8">
+            <h2 class="text-lg font-semibold mb-4">Projects</h2>
+            <p class="text-gray-600 mb-4">30 done this month</p>
+            <table class="w-full">
+                <thead>
+                    <tr class="text-left border-b border-gray-400">
+                        <th class="py-2">Companies</th>
+                        <th class="py-2">Members</th>
+                        <th class="py-2">Budget</th>
+                        <th class="py-2">Completion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-gray-400">
+                        <td class="py-2">Car Selling Platform</td>
+                        <td class="py-2">10</td>
+                        <td class="py-2">$14,000</td>
+                        <td class="py-2">60%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6 rounded-lg shadow mb-8">
+            <h2 class="text-lg font-semibold mb-4">Reviews</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="text-center">
+                    <p class="text-2xl font-bold text-green-600">80%</p>
+                    <p class="text-gray-600">Positive Reviews</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-2xl font-bold text-yellow-600">17%</p>
+                    <p class="text-gray-600">Neutral Reviews</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-2xl font-bold text-red-600">3%</p>
+                    <p class="text-gray-600">Negative Reviews</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders Overview Section -->
+        <div class="bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 p-6 rounded-lg shadow">
+            <h2 class="text-lg font-semibold mb-4">Orders Overview</h2>
+            <p class="text-gray-600 mb-4">24% this month</p>
+            <div class="space-y-4">
+                <div class="border-l-4 border-gray-400 pl-4">
+                    <p class="font-semibold">$2400, Design changes</p>
+                    <p class="text-gray-600">22 DEC 7:20 PM</p>
+                </div>
+                <div class="border-l-4 border-green-600 pl-4">
+                    <p class="font-semibold">New order #1832412</p>
+                    <p class="text-gray-600">23 DEC 10:45 AM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Sales Chart
+            const salesCtx = document.getElementById('salesChart').getContext('2d');
+            new Chart(salesCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    datasets: [{
+                        label: 'Sales',
+                        data: [65, 59, 80, 81, 56, 55, 40],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Inventory Chart
+            const inventoryCtx = document.getElementById('inventoryChart').getContext('2d');
+            new Chart(inventoryCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Sedan', 'SUV', 'Truck', 'Coupe', 'Convertible'],
+                    datasets: [{
+                        label: 'Inventory',
+                        data: [12, 19, 3, 5, 2],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
